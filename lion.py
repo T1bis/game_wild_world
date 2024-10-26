@@ -1,4 +1,5 @@
 import pygame
+from random import *
 class Lion():
     def __init__(self):
         self.image = pygame.image.load(r'lion.png')
@@ -33,3 +34,11 @@ class Lion():
         if self.y > 355:
             self.y = 355
 
+    def locate_food(self):
+        old_x = self.x
+        old_y = self.y
+        self.x = randint(0, 5) * 70 + 5
+        self.y = randint(0, 5) * 70 + 5
+        while(old_y==self.y and old_x==self.x):
+            self.x = randint(0, 5) * 70 + 5
+            self.y = randint(0, 5) * 70 + 5
